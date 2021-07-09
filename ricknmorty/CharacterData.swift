@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//results[0].name
 struct CharacterData:Decodable{
     let info: Info
     let results:[Results]
@@ -22,8 +21,14 @@ struct Results:Decodable{
     let name:String
     let status:String
     let species:String
+    let gender:String
+    let origin:Origin
     let location:Location
     let image: String
+}
+
+struct Origin:Decodable {
+    let name:String
 }
 
 struct  Location:Decodable {

@@ -19,7 +19,11 @@ class Character: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        characterDp.layer.masksToBounds = false
+        characterDp.layer.cornerRadius = characterDp.frame.height/2
+        characterDp.layer.borderWidth = 4
+        characterDp.layer.borderColor = UIColor.clear.cgColor
+        characterDp.clipsToBounds = true
         // Configure the view for the selected state
     }
 
