@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/harsh/Documents/GitHub/ricknmorty/ricknmorty/ricknmorty/Fonts">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

@@ -8,7 +8,7 @@ import UIKit
 
 class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextFieldDelegate{
     
-    
+//MARK: Variables
     let url = "https://rickandmortyapi.com/api/character/?name"
     var searchQuery = ""
     var url2 = ""
@@ -16,87 +16,86 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     var rowss:Int = 0
     var statuss:String = ""
     
-    @IBOutlet weak var searchBar: UITextField!
+    //@IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchTF: UITextField!
+    //@IBOutlet weak var searchTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadJson(url: url)
         searchBar.delegate = self
     }
     
+    //MARK: search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchQuery = searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         url2 = "https://rickandmortyapi.com/api/character/?name=\(searchQuery)"
-                downloadJson(url: url2)
-              tableView.reloadData()
+        downloadJson(url: url2)
+        tableView.reloadData()
+        print(url2)
     }
-    
-    @IBAction func searchPressed(_ sender: UIButton) {
-        searchQuery = searchTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        url2 = "https://rickandmortyapi.com/api/character/?name=\(searchQuery)"
-                downloadJson(url: url2)
-              tableView.reloadData()
-    }
-    
+
+    //MARK: JSON
     func downloadJson(url:String) {
         
-            if searchQuery != "" {
-                if let url = URL(string: url2){
-                    let session = URLSession.shared
-                    
-                    let task = session.dataTask(with: url) { (data, response, error) in
-                        if error != nil{
-                            let alert = UIAlertController(title: "Oops...", message: "Incorrect name enterred", preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                            print(error!)
-                            return
-                        }
-                        //print("no error")
-                        do{
-                            let decoder = JSONDecoder()
-                            let downloadeData = try decoder.decode(CharacterData.self, from: data!)
-                            self.chars = [downloadeData]
-                            self.rowss = self.chars[0].results.count
-                            print(self.url2)
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
-                        } catch {
-                            print(error)
-                        }
+        if searchQuery != "" {
+            if let url = URL(string: url2){
+                let session = URLSession.shared
+                
+                let task = session.dataTask(with: url) { (data, response, error) in
+                    if error != nil{
+                        let alertController = UIAlertController(title: "Login", message:
+                                                                    "Please re-check details entered above", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                        print(error!)
+                        return
                     }
-                    task.resume()
-                }
-            } else {
-                if let url = URL(string: url){
-                    let session = URLSession.shared
-                    let task = session.dataTask(with: url) { (data, response, error) in
-                        if error != nil{
-                            print(error!)
-                            return
+                    //print("no error")
+                    do{
+                        let decoder = JSONDecoder()
+                        let downloadeData = try decoder.decode(CharacterData.self, from: data!)
+                        self.chars = [downloadeData]
+                        self.rowss = self.chars[0].results.count
+                        print(self.url2)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
                         }
-                        //no error
-                        do{
-                            let decoder = JSONDecoder()
-                            let downloadeData = try decoder.decode(CharacterData.self, from: data!)
-                            self.chars = [downloadeData]
-                            self.rowss = self.chars[0].results.count
-                            self.statuss = self.chars[0].results[0].status
-                            print(self.chars[0].results[0].image)
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
-                        } catch {
-                            print(error)
-                        }
+                    } catch {
+                        print(error)
                     }
-                    task.resume()
                 }
+                task.resume()
             }
+        } else {
+            if let url = URL(string: url){
+                let session = URLSession.shared
+                let task = session.dataTask(with: url) { (data, response, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    //no error
+                    do{
+                        let decoder = JSONDecoder()
+                        let downloadeData = try decoder.decode(CharacterData.self, from: data!)
+                        self.chars = [downloadeData]
+                        self.rowss = self.chars[0].results.count
+                        self.statuss = self.chars[0].results[0].status
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+                task.resume()
+            }
+        }
     }
     
+    //MARK: table functions
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "moreInfo", sender: nil)
     }
@@ -128,17 +127,17 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                         else if self.statuss == "Dead"{
                             cell.characterDp.layer.borderColor = UIColor.red.cgColor
                         }
-                        //self.tableView.reloadData()
                     }
                 }
             }
         }
-
+        
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is moreInfoVC{
+            
             let vc = segue.destination as? moreInfoVC
             let indexPaths = self.tableView!.indexPathsForSelectedRows!
             let indexPath = indexPaths[0] as NSIndexPath

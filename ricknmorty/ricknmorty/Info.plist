@@ -58,7 +58,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.tff</string>
-		<string></string>
+		<string>SF-Pro-Display-Black.otf</string>
+		<string>SF-Pro-Text-Black.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

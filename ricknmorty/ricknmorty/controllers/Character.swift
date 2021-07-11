@@ -8,6 +8,7 @@
 import UIKit
 
 class Character: UITableViewCell {
+    
 
     @IBOutlet weak var serialNumber: UILabel!
     @IBOutlet weak var characterDp: UIImageView!
@@ -24,7 +25,7 @@ class Character: UITableViewCell {
         characterDp.layer.borderWidth = 4
         characterDp.layer.borderColor = UIColor.clear.cgColor
         characterDp.clipsToBounds = true
-        // Configure the view for the selected state
+        
     }
 
 }
