@@ -84,6 +84,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                             self.chars = [downloadeData]
                             self.rowss = self.chars[0].results.count
                             self.statuss = self.chars[0].results[0].status
+                            print(self.chars[0].results[0].image)
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                             }
