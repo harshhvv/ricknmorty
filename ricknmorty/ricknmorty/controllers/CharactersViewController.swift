@@ -24,6 +24,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         downloadJson(url: url)
         searchBar.delegate = self
+        print(statuss)
     }
     
     //MARK: search
@@ -124,10 +125,11 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                         if self.statuss == "Alive"{
                             cell.characterDp.layer.borderColor = UIColor.cyan.cgColor
                         }
-                        else if self.statuss == "Dead"{
+                        else{
                             cell.characterDp.layer.borderColor = UIColor.red.cgColor
                         }
                     }
+                    
                 }
             }
         }
