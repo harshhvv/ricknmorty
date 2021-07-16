@@ -1,5 +1,5 @@
 //
-//  EpisodesCell.swift
+//  
 //  ricknmorty
 //
 //  Created by Harsh  on 06/07/21.

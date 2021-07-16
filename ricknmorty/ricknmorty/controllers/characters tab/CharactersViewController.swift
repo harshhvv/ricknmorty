@@ -16,15 +16,14 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     var rowss:Int = 0
     var statuss:String = ""
     
-    //@IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    //@IBOutlet weak var searchTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadJson(url: url)
         searchBar.delegate = self
-        print(statuss)
+        //print(statuss)
     }
     
     //MARK: search
@@ -33,7 +32,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         url2 = "https://rickandmortyapi.com/api/character/?name=\(searchQuery)"
         downloadJson(url: url2)
         tableView.reloadData()
-        print(url2)
+        //print(url2)
     }
 
     //MARK: JSON
@@ -45,11 +44,6 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                 
                 let task = session.dataTask(with: url) { (data, response, error) in
                     if error != nil{
-                        let alertController = UIAlertController(title: "Login", message:
-                                                                    "Please re-check details entered above", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                        
-                        self.present(alertController, animated: true, completion: nil)
                         print(error!)
                         return
                     }
@@ -102,11 +96,11 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowss
+        return rowss //got from api
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 139
+        return 139 //got from figma
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -138,6 +132,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //passing values to next viewController: "moreInfoVC"
         if segue.destination is moreInfoVC{
             
             let vc = segue.destination as? moreInfoVC
