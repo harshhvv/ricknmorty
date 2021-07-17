@@ -8,7 +8,7 @@ import UIKit
 
 class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextFieldDelegate{
     
-//MARK: Variables
+//MARK:- Variables
     let url = "https://rickandmortyapi.com/api/character/?name"
     var searchQuery = ""
     var url2 = ""
@@ -21,22 +21,22 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadJson(url: url)
+        downloadJson(url)
         searchBar.delegate = self
         //print(statuss)
     }
     
-    //MARK: search
+    //MARK:- search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         url2 = "https://rickandmortyapi.com/api/character/?name=\(searchQuery)"
-        downloadJson(url: url2)
+        downloadJson(url2)
         tableView.reloadData()
         //print(url2)
     }
 
     //MARK: JSON
-    func downloadJson(url:String) {
+    func downloadJson(_ url:String) {
         
         if searchQuery != "" {
             if let url = URL(string: url2){

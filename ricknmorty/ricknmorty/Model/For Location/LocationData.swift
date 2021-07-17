@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct LocationData:Decodable{
+struct LocationData:Codable{
     let info: Infoo
     let results:[Resultss]
 }
 
-struct Infoo:Decodable{
+struct Infoo:Codable{
     let count:Int
 }
 
-struct Resultss:Decodable{
+struct Resultss:Codable{
     let id:Int
     let name:String
     let type:String

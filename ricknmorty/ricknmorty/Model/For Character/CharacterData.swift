@@ -6,17 +6,17 @@
 //
 
 import Foundation
-struct CharacterData:Decodable{
+struct CharacterData:Codable{
     let info: Info
     let results:[Results]
     
 }
 
-struct Info:Decodable{
+struct Info:Codable{
     let count:Int
 }
 
-struct Results:Decodable{
+struct Results:Codable{
     let id:Int
     let name:String
     let status:String
@@ -27,11 +27,11 @@ struct Results:Decodable{
     let image: String
 }
 
-struct Origin:Decodable {
+struct Origin:Codable {
     let name:String
 }
 
-struct  Location:Decodable {
+struct  Location:Codable {
     let name:String
 }
 

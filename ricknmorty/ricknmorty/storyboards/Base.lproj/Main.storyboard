@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="plk-6C-40S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="plk-6C-40S">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-E9-szw">
-                                        <rect key="frame" x="16" y="130" width="382" height="56"/>
+                                        <rect key="frame" x="16" y="130" width="382" height="51"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -45,9 +45,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DoT-rh-A0O">
                                 <rect key="frame" x="0.0" y="183" width="414" height="630"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.1333333333" green="0.15686274510000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="HbT-gj-bJt" customClass="Character" customModule="ricknmorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="129"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HbT-gj-bJt" id="e0P-rZ-ptf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
@@ -435,16 +436,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-zI-HXw">
-                                <rect key="frame" x="16" y="166" width="414" height="56"/>
+                            <searchBar contentMode="redraw" placeholder="Enter episode Number" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-zI-HXw">
+                                <rect key="frame" x="16" y="166" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="379" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JNm-bR-IWe">
-                                <rect key="frame" x="0.0" y="222" width="414" height="591"/>
+                                <rect key="frame" x="0.0" y="217" width="414" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="379" id="foq-tH-fbA" customClass="episodesTableViewCell" customModule="ricknmorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="379"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="379"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="foq-tH-fbA" id="cgZ-di-JLu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="379"/>
@@ -513,7 +514,7 @@
                                                             <size key="customSize" width="160.41999999999999" height="280"/>
                                                             <connections>
                                                                 <outlet property="dateLabel" destination="4Dt-rV-rq6" id="h9C-h9-Xpd"/>
-                                                                <outlet property="episodeDp" destination="sZW-ab-jLz" id="4jV-nH-4nA"/>
+                                                                <outlet property="episodeDp" destination="sZW-ab-jLz" id="w2m-mi-tL9"/>
                                                                 <outlet property="nameLabel" destination="7hE-LK-kNi" id="V7K-97-t85"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -530,7 +531,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="collectionView" destination="Weq-H1-WAj" id="3pa-ap-I3a"/>
+                                            <outlet property="collectionView" destination="Weq-H1-WAj" id="5jU-3f-ud5"/>
                                             <outlet property="seasonLabel" destination="vm5-kZ-zHY" id="ohK-7w-vZe"/>
                                         </connections>
                                     </tableViewCell>
@@ -555,6 +556,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Episodes" id="cpB-Pm-ipR"/>
                     <connections>
+                        <outlet property="searchBar" destination="bwv-zI-HXw" id="9wB-0b-yGW"/>
+                        <outlet property="tableView" destination="JNm-bR-IWe" id="Mdm-c8-HJX"/>
                         <segue destination="rNu-kT-3mh" kind="show" id="bMX-JW-19s"/>
                     </connections>
                 </viewController>
@@ -571,11 +574,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UZk-0y-55j">
-                                <rect key="frame" x="16" y="151" width="414" height="56"/>
+                                <rect key="frame" x="16" y="151" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS1-8c-QVU">
-                                <rect key="frame" x="16" y="243" width="382" height="32"/>
+                                <rect key="frame" x="16" y="238" width="382" height="32"/>
                                 <segments>
                                     <segment title="Stations"/>
                                     <segment title="Dimensions"/>
@@ -586,11 +589,11 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ODy-xn-B0Q">
-                                <rect key="frame" x="0.0" y="291.5" width="414" height="521.5"/>
+                                <rect key="frame" x="0.0" y="286.5" width="414" height="526.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="86" id="Er3-ZL-aJH" customClass="locationsTableViewCell" customModule="ricknmorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="86"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Er3-ZL-aJH" id="PVj-QB-qi2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
