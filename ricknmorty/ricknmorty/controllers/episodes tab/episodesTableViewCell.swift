@@ -20,6 +20,7 @@ class episodesTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionView.delegate = self
         episodeManager.delegate = self
         collectionView.dataSource = self
+        //print(collectionView.tag)
 //        print(self.episodeDetails)
     }
 
@@ -30,12 +31,13 @@ class episodesTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! episodesCollectionViewCell
-        print(self.episodeDetails)
-        DispatchQueue.main.async {
-            collectionCell.dateLabel.text = self.episodeDetails[0].results[indexPath.row].airDate
-            collectionCell.nameLabel.text = "\(self.episodeDetails[0].results[indexPath.row].episode.suffix(2)):\(self.episodeDetails[0].results[indexPath.row].name)"
-            collectionCell.episodeDp.image = UIImage(imageLiteralResourceName: "Image")
-        }
+        //print(self.episodeDetails)
+        print(collectionCell.tag)
+//        DispatchQueue.main.async {
+//            collectionCell.dateLabel.text = self.episodeDetails[0].results[indexPath.row].airDate
+//            collectionCell.nameLabel.text = "\(self.episodeDetails[0].results[indexPath.row].episode.suffix(2)):\(self.episodeDetails[0].results[indexPath.row].name)"
+//            collectionCell.episodeDp.image = UIImage(imageLiteralResourceName: "Image")
+//        }
         
         return collectionCell
     }

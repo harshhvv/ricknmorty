@@ -363,7 +363,9 @@
                             <constraint firstItem="86g-YO-vwQ" firstAttribute="top" secondItem="bgb-7R-mgy" secondAttribute="bottom" constant="20" id="mEM-yc-MeS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qx9-oS-Ufk"/>
+                    <navigationItem key="navigationItem" id="Qx9-oS-Ufk">
+                        <barButtonItem key="backBarButtonItem" title="HELLO" id="rXP-mh-LSY"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHb-h4-afI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
