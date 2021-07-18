@@ -473,7 +473,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160.41999999999999" height="280"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZW-ab-jLz">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG-2" translatesAutoresizingMaskIntoConstraints="NO" id="sZW-ab-jLz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="160.5" height="207.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="207.61000000000001" id="jdA-1v-ryq"/>
@@ -721,6 +721,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BG-2" width="375" height="513"/>
         <image name="Vector-2" width="18" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
