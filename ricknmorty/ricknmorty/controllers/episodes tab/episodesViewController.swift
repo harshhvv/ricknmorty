@@ -48,9 +48,9 @@ extension episodesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! episodesTableViewCell
         cell.seasonLabel.text = "Season \(indexPath.row)"
-//        cell.collectionView.name
+//         cell.collectionView(UICollectionView, cellForItemAt: indexPath)
         return cell
-    }
+}
 }
 
 //let seasons = ["Season 1", "Season 2", "Season 3", "Season 4" ]
