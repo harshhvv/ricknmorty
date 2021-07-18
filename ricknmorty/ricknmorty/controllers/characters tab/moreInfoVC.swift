@@ -32,6 +32,21 @@ class moreInfoVC: UIViewController, UIViewControllerTransitioningDelegate  {
         originLabel.text = origin
         genderLabel.text = gender
         locLabel.text = lastActive
+        
+        charDP.layer.borderWidth = 4
+        charDP.layer.borderColor = UIColor.clear.cgColor
+        charDP.clipsToBounds = true
+        
+        if status == "Alive"{
+            charDP.layer.borderColor = UIColor.cyan.cgColor
+        }
+        else if status == "Dead"{
+            charDP.layer.borderColor = UIColor.red.cgColor
+        }
+        else{
+            charDP.layer.borderColor = UIColor.clear.cgColor
+        }
+        
         if let imageURL = URL(string: dpURL) {
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imageURL)

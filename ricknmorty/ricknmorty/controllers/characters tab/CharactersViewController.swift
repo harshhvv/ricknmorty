@@ -116,12 +116,12 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         cell.characterDp.image = image
-                        if self.statuss == "Alive"{
-                            cell.characterDp.layer.borderColor = UIColor.cyan.cgColor
-                        }
-                        else{
-                            cell.characterDp.layer.borderColor = UIColor.red.cgColor
-                        }
+//                        if self.statuss == "Alive"{
+//                            cell.characterDp.layer.borderColor = UIColor.cyan.cgColor
+//                        }
+//                        else{
+//                            cell.characterDp.layer.borderColor = UIColor.red.cgColor
+//                        }
                     }
                     
                 }
