@@ -47,7 +47,7 @@ extension episodesViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! episodesTableViewCell
-        cell.seasonLabel.text = "Season \(indexPath.row)"
+        cell.seasonLabel.text = "Season \(indexPath.row+1)"
 //         cell.collectionView(UICollectionView, cellForItemAt: indexPath)
         return cell
 }

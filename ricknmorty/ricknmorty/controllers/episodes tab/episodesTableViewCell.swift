@@ -20,6 +20,7 @@ class episodesTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionView.delegate = self
         episodeManager.delegate = self
         collectionView.dataSource = self
+//        print(self.episodeDetails)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,6 +30,7 @@ class episodesTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! episodesCollectionViewCell
+        print(self.episodeDetails)
         DispatchQueue.main.async {
             collectionCell.dateLabel.text = self.episodeDetails[0].results[indexPath.row].airDate
             collectionCell.nameLabel.text = "\(self.episodeDetails[0].results[indexPath.row].episode.suffix(2)):\(self.episodeDetails[0].results[indexPath.row].name)"
