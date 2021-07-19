@@ -12,6 +12,7 @@ class moreInfoVC: UIViewController, UIViewControllerTransitioningDelegate  {
     
     var name = ""
     var dpURL = ""
+    //var moreInfoDp :UIImage?
     var species = ""
     var status = ""
     var origin = ""
@@ -46,6 +47,8 @@ class moreInfoVC: UIViewController, UIViewControllerTransitioningDelegate  {
         else{
             charDP.layer.borderColor = UIColor.clear.cgColor
         }
+        
+        //charDP.image = moreInfoDp
         
         if let imageURL = URL(string: dpURL) {
             DispatchQueue.global().async {

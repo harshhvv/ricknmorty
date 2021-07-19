@@ -580,16 +580,18 @@
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS1-8c-QVU">
                                 <rect key="frame" x="16" y="243" width="382" height="32"/>
+                                <color key="backgroundColor" red="0.27843137254901962" green="0.098039215686274508" blue="0.3529411764705882" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Stations"/>
                                     <segment title="Dimensions"/>
                                     <segment title="Planets"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.27843137254901962" green="0.10588235294117647" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="segmentedControlActionChanged:" destination="xyB-P5-So7" eventType="valueChanged" id="mNY-NU-11l"/>
+                                    <action selector="segmentValueChanged:" destination="xyB-P5-So7" eventType="valueChanged" id="IDX-42-6Hy"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ODy-xn-B0Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ODy-xn-B0Q">
                                 <rect key="frame" x="0.0" y="291.5" width="414" height="521.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -633,7 +635,7 @@
                                                         <constraint firstItem="IdE-fX-Zaj" firstAttribute="top" secondItem="sZF-K8-vg3" secondAttribute="top" constant="25" id="A3I-Rd-Vzf"/>
                                                         <constraint firstItem="joF-Og-IsE" firstAttribute="top" secondItem="sZF-K8-vg3" secondAttribute="top" constant="23.379999999999999" id="EQD-sJ-1kt"/>
                                                         <constraint firstItem="IdE-fX-Zaj" firstAttribute="leading" secondItem="sZF-K8-vg3" secondAttribute="leading" constant="10" id="MSe-Eh-Kmg"/>
-                                                        <constraint firstItem="joF-Og-IsE" firstAttribute="leading" secondItem="5kI-Yk-tCJ" secondAttribute="trailing" constant="116" id="Wnw-K1-8hw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="joF-Og-IsE" secondAttribute="trailing" constant="9" id="aXr-Ux-sqB"/>
                                                         <constraint firstItem="5kI-Yk-tCJ" firstAttribute="top" secondItem="sZF-K8-vg3" secondAttribute="top" constant="10" id="gPE-gR-krf"/>
                                                         <constraint firstItem="5kI-Yk-tCJ" firstAttribute="leading" secondItem="IdE-fX-Zaj" secondAttribute="trailing" constant="32" id="tie-hg-ZrD"/>
                                                     </constraints>
@@ -653,6 +655,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xyB-P5-So7" id="bDJ-vk-O0t"/>
+                                    <outlet property="delegate" destination="xyB-P5-So7" id="vRX-sX-BRc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i3u-vj-kck"/>

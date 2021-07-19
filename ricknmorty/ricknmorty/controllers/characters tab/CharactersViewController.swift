@@ -15,6 +15,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     var chars = [CharacterData]()
     var rowss:Int = 0
     var statuss:String = ""
+    var dp:UIImage?
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -106,7 +107,8 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Character
         cell.characterName.text = chars[0].results[indexPath.row].name
-        cell.serialNumber.text = String(chars[0].results[indexPath.row].id)
+        cell.serialNumber.text = String(indexPath.row+1)
+        //cell.serialNumber.text = String(chars[0].results[indexPath.row].id)
         //print(indexPath)
         
         if let imageURL = URL(string: chars[0].results[indexPath.row].image) {
@@ -116,12 +118,13 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         cell.characterDp.image = image
-//                        if self.statuss == "Alive"{
-//                            cell.characterDp.layer.borderColor = UIColor.cyan.cgColor
-//                        }
-//                        else{
-//                            cell.characterDp.layer.borderColor = UIColor.red.cgColor
-//                        }
+                        self.dp = image
+                        if self.statuss == "Alive"{
+                            cell.characterDp.layer.borderColor = UIColor.cyan.cgColor
+                        }
+                        else{
+                            cell.characterDp.layer.borderColor = UIColor.red.cgColor
+                        }
                     }
                     
                 }
@@ -146,6 +149,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
             vc?.origin = chars[0].results[indexPath.row].origin.name
             vc?.gender = chars[0].results[indexPath.row].gender
             vc?.lastActive = chars[0].results[indexPath.row].location.name
+            //vc?.moreInfoDp = dp
         }
     }
     

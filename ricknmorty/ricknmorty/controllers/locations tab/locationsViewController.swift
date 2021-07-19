@@ -10,9 +10,12 @@ import UIKit
 class locationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var locs = [LocationData]()
+//    var locs2 = [LocationData]()
+//    var locs3 = [LocationData]()
     var searchQuery = ""
     var url2 = ""
     var defUrl = ""
+    var numberOfRows:Int = 0
     
     @IBOutlet weak var segmented: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,14 +23,15 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
         searchBar.delegate = self
         downloadJson()
-        tableView.reloadData()
     }
     
-    @IBAction func segmentedControlActionChanged(_ sender: UISegmentedControl) {
-        tableView.reloadData()
+
+    
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl)
+    {
+        downloadJson()
     }
     
     //MARK: search
@@ -36,19 +40,19 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
         switch segmented.selectedSegmentIndex {
         case 0:
             url2 = "https://rickandmortyapi.com/api/location/?type=station&name=\(searchQuery)"
-            break
+            //break
         case 1:
             url2 = "https://rickandmortyapi.com/api/location/?type=dimension&name=\(searchQuery)"
-            break
+            //break
         case 2:
             url2 = "https://rickandmortyapi.com/api/location/?type=planet&name=\(searchQuery)"
-            break
+            //break
         default:
-            break
+            url2 = "https://rickandmortyapi.com/api/location/"
         }
         downloadJson()
-        tableView.reloadData()
-        print(url2)
+        //tableView.reloadData()
+        //print(url2)
     }
     
     
@@ -58,13 +62,13 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
         switch segmented.selectedSegmentIndex {
         case 0:
             defUrl = "https://rickandmortyapi.com/api/location/?type=station"
-            break
+            //break
         case 1:
             defUrl = "https://rickandmortyapi.com/api/location/?type=dimension"
-            break
+            //break
         case 2:
             defUrl = "https://rickandmortyapi.com/api/location/?type=planet"
-            break
+            //break
         default:
             break
         }
@@ -83,8 +87,10 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
                         let decoder = JSONDecoder()
                         let downloadeData = try decoder.decode(LocationData.self, from: data!)
                         self.locs = [downloadeData]
-                        //self.rowss = self.chars[0].results.count
-                        print(self.locs[0].results)
+                        //print(self.locs[0].results[0].id)
+                        //print(self.locs[0].results[0].name)
+                        self.numberOfRows = self.locs[0].results.count
+                        //print(self.locs[0].results.count)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -107,8 +113,8 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
                         let decoder = JSONDecoder()
                         let downloadeData = try decoder.decode(LocationData.self, from: data!)
                         self.locs = [downloadeData]
-                        print(self.locs)
-                        //self.rowss = self.chars[0].results.count
+                        //print(self.locs)
+                        self.numberOfRows = self.locs[0].results.count
                         //self.statuss = self.chars[0].results[0].status
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -120,20 +126,38 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
                 task.resume()
             }
         }
+        
     }
     
     
     //MARK: table functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! locationsTableViewCell
-        cell.idLabel.text = String(self.locs[0].results[indexPath.row].id)
-        cell.nameLabel.text = self.locs[0].results[indexPath.row].name
+        switch segmented.selectedSegmentIndex {
+        case 0:
+            cell.locImage.image = #imageLiteral(resourceName: "spaceStationIcon")
+        case 1:
+            cell.locImage.image = #imageLiteral(resourceName: "dimesnionIcon")
+        case 2:
+            cell.locImage.image = #imageLiteral(resourceName: "planetIcon")
+        default:
+            cell.locImage.image = #imageLiteral(resourceName: "BG-2")
+        }
         
+        cell.idLabel.text = String(indexPath.row+1)
+        //cell.idLabel.text = String(self.locs[0].results[indexPath.row].id)
+        cell.nameLabel.text = self.locs[0].results[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.locs[0].results.count //random
+        return numberOfRows
+        
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 86
+    }
+    
     
 }

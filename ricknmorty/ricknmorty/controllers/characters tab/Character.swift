@@ -22,8 +22,8 @@ class Character: UITableViewCell {
         super.setSelected(selected, animated: animated)
         characterDp.layer.masksToBounds = false
         characterDp.layer.cornerRadius = characterDp.frame.height/2
-        characterDp.layer.borderWidth = 4
-        characterDp.layer.borderColor = UIColor.clear.cgColor
+        //characterDp.layer.borderWidth = 4
+        //characterDp.layer.borderColor = UIColor.clear.cgColor
         characterDp.clipsToBounds = true
         
     }
