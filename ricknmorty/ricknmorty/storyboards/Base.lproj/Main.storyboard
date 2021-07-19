@@ -441,14 +441,20 @@
                                             <constraint firstAttribute="height" constant="117" id="lZm-Lg-4z4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEb-fa-FWw">
-                                        <rect key="frame" x="107" y="99" width="218" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEb-fa-FWw">
+                                        <rect key="frame" x="107" y="99" width="205" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="205" id="b4L-x3-L1B"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkV-XD-700">
-                                        <rect key="frame" x="132" y="128" width="167" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkV-XD-700">
+                                        <rect key="frame" x="132" y="128" width="154" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="154" id="G0p-Od-uSM"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -462,6 +468,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="dkV-XD-700" firstAttribute="leading" secondItem="hVe-Tt-nX6" secondAttribute="leading" constant="132" id="01d-Es-hlE"/>
+                                    <constraint firstItem="DEb-fa-FWw" firstAttribute="leading" secondItem="hVe-Tt-nX6" secondAttribute="leading" constant="107" id="5FV-83-0Po"/>
                                     <constraint firstItem="FTc-4k-WQq" firstAttribute="top" secondItem="ams-hF-KD3" secondAttribute="bottom" constant="34" id="7Oc-ZJ-Uaf"/>
                                     <constraint firstItem="ams-hF-KD3" firstAttribute="leading" secondItem="hVe-Tt-nX6" secondAttribute="leading" constant="16" id="AQr-wx-3Kr"/>
                                     <constraint firstItem="dkV-XD-700" firstAttribute="top" secondItem="cdu-qd-FwK" secondAttribute="bottom" constant="49" id="GJn-c1-IQa"/>
