@@ -20,6 +20,7 @@ class episodesViewController: UIViewController, UISearchBarDelegate, EpisodeMana
         episodeManager.delegate = self
         tableView.delegate = self
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "b", style: .plain, target: nil, action: nil)
+        EpisodeManager().getDetailsOfEpisodes("")
     }
     
     func searchBarPressed(_ searchBar: UISearchBar){

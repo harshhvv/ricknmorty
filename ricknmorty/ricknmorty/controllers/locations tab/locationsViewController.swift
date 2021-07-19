@@ -16,6 +16,8 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
     var url2 = ""
     var defUrl = ""
     var numberOfRows:Int = 0
+    var residentArray:[String]?
+    var segmentedIndex:Int?
     
     @IBOutlet weak var segmented: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -159,5 +161,32 @@ class locationsViewController: UIViewController, UITableViewDelegate, UITableVie
         return 86
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "expandedLocation", sender: nil)
+        switch segmented.selectedSegmentIndex {
+        case 0:
+            segmentedIndex = 0
+        case 1:
+            segmentedIndex = 1
+        case 2:
+            segmentedIndex = 2
+        default:
+            segmentedIndex = 0
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is locationExpanded{
+            
+            let vc = segue.destination as? locationExpanded
+            let indexPaths = self.tableView!.indexPathsForSelectedRows!
+            let indexPath = indexPaths[0] as NSIndexPath
+            
+            vc?.residents = locs[0].results[indexPath.row].residents
+            vc?.locationName = locs[0].results[indexPath.row].name
+            vc?.locationType = locs[0].results[indexPath.row].type
+            vc?.segmentedIndex = segmentedIndex
+        }
+    }
     
 }

@@ -8,7 +8,7 @@ import UIKit
 
 class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextFieldDelegate{
     
-//MARK:- Variables
+    //MARK:- Variables
     let url = "https://rickandmortyapi.com/api/character/?name"
     var searchQuery = ""
     var url2 = ""
@@ -24,7 +24,6 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         downloadJson(url)
         searchBar.delegate = self
-        //print(statuss)
     }
     
     //MARK:- search
@@ -33,9 +32,8 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         url2 = "https://rickandmortyapi.com/api/character/?name=\(searchQuery)"
         downloadJson(url2)
         tableView.reloadData()
-        //print(url2)
     }
-
+    
     //MARK: JSON
     func downloadJson(_ url:String) {
         
@@ -108,8 +106,6 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Character
         cell.characterName.text = chars[0].results[indexPath.row].name
         cell.serialNumber.text = String(indexPath.row+1)
-        //cell.serialNumber.text = String(chars[0].results[indexPath.row].id)
-        //print(indexPath)
         
         if let imageURL = URL(string: chars[0].results[indexPath.row].image) {
             DispatchQueue.global().async {
@@ -152,8 +148,4 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
             //vc?.moreInfoDp = dp
         }
     }
-    
-    
-    
-    
 }
